@@ -18,20 +18,37 @@
             padding: 0;
             margin: 0;
         }
-        </style>
-        <title></title>
-		<!--
-		<style>
-			#map {
+        /*
+		#map {
 			width: 600px;
 			height: 400px;
 			margin: 20px auto;
 			border: 1px solid #ccc;
 				}
+		*/		
+		#fixed-info-box {
+		position: absolute;
+		top: 500px;         /* distance from top of the window */
+		left: 900px;        /* distance from left of the window */
+		width: 300px;
+		background-color: rgba(255, 255, 255, 0.9);
+		padding: 10px 15px;
+		border: 1px solid #ccc;
+		border-radius: 5px;
+		font-family: Calibri, sans-serif;
+		font-size: 14px;
+		color: #333;
+		z-index: 1000;     /* ensures it stays above the map */
+		box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+						}
 		</style>
-		-->
+        <title>Zipcodes of Toronto</title>
     </head>
     <body>
+		<div id="fixed-info-box">
+		<span style="display: block; text-align: center;"><strong>Zipcodes of Toronto</strong></span><br>
+		Move your mouse over the zipcodes. Click on any zipcode area to see more information.
+		</div>
         <div id="map">
         </div>
         <script src="js/qgis2web_expressions.js"></script>
