@@ -42,7 +42,7 @@
 		box-shadow: 0 2px 6px rgba(0,0,0,0.2);
 						}
 		</style>
-        <title>Zipcodes of Toronto</title>
+        <title>Zipcodes of Toronto</title>		
     </head>
     <body>
 		<div id="fixed-info-box">
@@ -213,15 +213,15 @@
         bounds_group.addLayer(layer_clipped_zipscopy_1);
         map.addLayer(layer_clipped_zipscopy_1);
         map.on("zoomend", function(e) {
-            if (map.getZoom() <= 19 && map.getZoom() >= 10) {
-                map.addLayer(layer_clipped_zipscopy_1);
-            } else if (map.getZoom() > 19 || map.getZoom() < 10) {
+            if (map.getZoom() <= 19 && map.getZoom() >= 1) {
+                //map.addLayer(layer_clipped_zipscopy_1);
+            } else if (map.getZoom() > 19 || map.getZoom() < 1) {
                 map.removeLayer(layer_clipped_zipscopy_1);
             }
         });
-            if (map.getZoom() <= 19 && map.getZoom() >= 10) {
-                map.addLayer(layer_clipped_zipscopy_1);
-            } else if (map.getZoom() > 19 || map.getZoom() < 10) {
+            if (map.getZoom() <= 19 && map.getZoom() >= 1) {
+                //map.addLayer(layer_clipped_zipscopy_1);
+            } else if (map.getZoom() > 19 || map.getZoom() < 1) {
                 map.removeLayer(layer_clipped_zipscopy_1);
             }
         setBounds();
@@ -249,5 +249,17 @@
             resetLabels([layer_clipped_zipscopy_1]);
         });
         </script>
+		<script>
+		// Define base layers (if any)
+		const baseMaps = {
+		"OpenStreetMap": layer_OpenStreetMap_0
+		};		
+		// Define overlay layers
+		const overlayMaps = {
+		"Forward Sortation Areas (FSA)": layer_clipped_zipscopy_1
+		};
+		// Add layer control to the map
+		L.control.layers(baseMaps, overlayMaps, { collapsed: true }).addTo(map);
+		</script>
     </body>
 </html>
