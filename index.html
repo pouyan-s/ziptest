@@ -28,8 +28,8 @@
 		*/		
 		#fixed-info-box {
 		position: absolute;
-		top: 500px;         /* distance from top of the window */
-		left: 900px;        /* distance from left of the window */
+		bottom: 30px;
+		right: 10px;
 		width: 250px;
 		background-color: rgba(255, 255, 255, 0.9);
 		padding: 10px 15px;
@@ -41,6 +41,11 @@
 		z-index: 1000;     /* ensures it stays above the map */
 		box-shadow: 0 2px 6px rgba(0,0,0,0.2);
 						}
+		/* Styles the layer control */
+		.leaflet-control-layers label span {
+		white-space: normal;
+		word-break: break-word;
+		}
 		</style>
         <title>Zipcodes of Toronto</title>		
     </head>
@@ -256,10 +261,11 @@
 		};		
 		// Define overlay layers
 		const overlayMaps = {
-		"Forward Sortation Areas (FSA)": layer_clipped_zipscopy_1
+		//"Forward Sortation Areas (FSA)": layer_clipped_zipscopy_1
+		'<span><i style="border:1px solid black; background:rgba(38, 249, 11, 0.5); width:14px; height:14px; display:inline-block; margin-right:6px;"></i> Forward Sortation Areas (FSA)</span>': layer_clipped_zipscopy_1
 		};
 		// Add layer control to the map
-		L.control.layers(baseMaps, overlayMaps, { collapsed: true }).addTo(map);
+		L.control.layers(baseMaps, overlayMaps, { collapsed: true, position: 'topright'}).addTo(map);
 		</script>
     </body>
 </html>
